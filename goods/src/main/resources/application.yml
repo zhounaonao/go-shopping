@@ -1,0 +1,36 @@
+server:
+  port: 8010
+
+spring:
+  servlet:
+    multipart:
+      maxFileSize: 10MB
+      maxRequestSize: 100MB
+
+  jackson:
+    date-format: yyyy-MM-dd hh:mm:ss
+
+  rabbitmq:
+    host: 192.168.32.131
+    port: 5672
+    username: znn
+    password: 123456
+    virtual-host: /znn
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: 123456
+      # useUnicode=true&characterEncoding=UTF-8 => 确定字符集
+      # autoReconnect=true&failOverReadOnly=false => 连接异常后是否重连，重连后是否只读
+      # serverTimezone=UTC => 默认时区
+      url: jdbc:mysql://192.168.32.131:3306/cloud-vue?&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&serverTimezone=UTC
+
+mybatis:
+  mapper-locations: classpath:mapping/base/*.xml
+  type-aliases-package: com.znn.**.domain
+  configuration:
+    map-underscore-to-camel-case: true
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

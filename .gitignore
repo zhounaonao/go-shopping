@@ -1,0 +1,5 @@
+# Project exclude paths
+/commons/target/
+/goods/target/
+/user/target/
+/vue/node_modules/
